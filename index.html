@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ENGRD 2700 Exam Tutor</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="shell">
+  <aside class="sidebar">
+    <div><div class="eyebrow">ENGRD 2700</div><h1>Exam Tutor</h1><p class="muted">Built for Thursday's prelim. The goal is independent, mixed, timed execution.</p></div>
+    <section class="card compact"><div class="row between"><span>Overall mastery</span><strong id="overallMastery">0%</strong></div><div class="progress"><span id="overallBar"></span></div></section>
+    <nav class="nav">
+      <button class="nav-btn active" data-view="learn">Learn</button>
+      <button class="nav-btn" data-view="mixed">Mixed</button>
+      <button class="nav-btn" data-view="timed">Timed</button>
+      <button class="nav-btn" data-view="mastery">Mastery</button>
+    </nav>
+    <section class="card compact">
+      <div class="small muted">Session</div>
+      <div class="stat-grid">
+        <div><strong id="attemptCount">0</strong><span>attempts</span></div>
+        <div><strong id="correctCount">0</strong><span>correct</span></div>
+        <div><strong id="avgTime">—</strong><span>avg sec</span></div>
+      </div>
+    </section>
+    <div class="sync" id="syncStatus">● Local only</div>
+  </aside>
+  <section class="content">
+    <header class="topbar">
+      <div><div class="eyebrow" id="modeLabel">LEARN MODE</div><h2 id="screenTitle">Build the model, then execute</h2></div>
+      <button id="newProblemBtn" class="ghost">New problem</button>
+    </header>
+    <section id="learnView">
+      <div class="card lesson-card">
+        <div class="row between gap">
+          <div><div class="pill" id="unitPill">Probability</div><h3 id="skillName">Conditional probability</h3></div>
+          <div class="mastery-badge" id="skillLevel">Level 0 / 4</div>
+        </div>
+        <p id="recognitionCue" class="cue"></p>
+        <div id="modelBox" class="model-box"></div>
+      </div>
+      <div class="card problem-card">
+        <div class="problem-meta"><span id="problemStage">guided</span><span id="problemId">p1</span></div>
+        <h3 id="problemPrompt"></h3>
+        <div id="problemChoices" class="choices"></div>
+        <textarea id="answerInput" rows="3" placeholder="Type your answer or setup here..."></textarea>
+        <div class="row gap wrap">
+          <button id="hintBtn" class="ghost">Hint</button>
+          <button id="submitBtn" class="primary">Submit answer</button>
+          <label class="confidence">Confidence
+            <select id="confidence"><option value="3">3 / 5</option><option value="1">1 / 5</option><option value="2">2 / 5</option><option value="4">4 / 5</option><option value="5">5 / 5</option></select>
+          </label>
+        </div>
+        <div id="hintBox" class="feedback hidden"></div>
+        <div id="feedbackBox" class="feedback hidden"></div>
+      </div>
+    </section>
+    <section id="masteryView" class="hidden">
+      <div class="card">
+        <div class="row between"><div><div class="eyebrow">MASTERY MAP</div><h3>What you can actually do</h3></div><button id="refreshMastery" class="ghost">Refresh</button></div>
+        <div id="masteryGrid" class="mastery-grid"></div>
+      </div>
+    </section>
+  </section>
+</main>
+<script src="curriculum.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
